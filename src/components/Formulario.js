@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import Error from './Error'
+import shortid from 'shortid'
 
-function Formulario() {
+function Formulario(props) {
+
+    const { guardarGasto } = props
 
     const [nombreGasto, guardarNombreGasto] = useState('')
     const [cantidadGasto, guardarCantidadGasto] = useState(0)
@@ -14,6 +17,18 @@ function Formulario() {
             guardarError(true)
             return
         }
+
+        const gasto = {
+            nombreGasto,
+            cantidadGasto,
+            id: shortid.generate()
+        }
+        guardarGasto(gasto)
+        guardarError(false)
+
+        // Resetear form
+        guardarNombreGasto('')
+        guardarCantidadGasto(0)
     }
 
     return (
@@ -29,6 +44,7 @@ function Formulario() {
                        className="u-full-width"
                        placeholder="Ejm. Transporte"
                        onChange={e => guardarNombreGasto(e.target.value)}
+                       value={nombreGasto}
                        />
             </div>
             <div className="campo">
@@ -37,6 +53,7 @@ function Formulario() {
                        className="u-full-width"
                        placeholder="Ejm. 150"
                        onChange={e => guardarCantidadGasto(parseInt(e.target.value, 10))}
+                       value={cantidadGasto}
                        />
             </div>
 
