@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react'
 
 function Pregunta(props) {
 
-    const { guardarPresupuesto } = props
+    const { guardarPresupuesto, guardarPregunataPresupuesto } = props
 
     // definicion de State
     const [cantidad, guardarCantidad] = useState(0)
@@ -18,6 +18,7 @@ function Pregunta(props) {
 
         guardarError(false)
         guardarPresupuesto(cantidad)
+        guardarPregunataPresupuesto(false)
     }
 
     return (
