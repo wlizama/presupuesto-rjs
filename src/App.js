@@ -6,6 +6,7 @@ import Listado from './components/Listado';
 function App() {
 
     const [presupuesto, guardarPresupuesto] = useState(0)
+    const [restante, guardarRestante] = useState(0)
     const [preguntaPresupuesto, guardarPregunataPresupuesto] = useState(true)
     const [crearGasto, guardarCrearGasto] = useState(false)
     const [gasto, guardarGasto] = useState({})
@@ -27,6 +28,7 @@ function App() {
                     {(preguntaPresupuesto) ?
                         <Pregunta guardarPresupuesto={guardarPresupuesto}
                                   guardarPregunataPresupuesto={guardarPregunataPresupuesto}
+                                  guardarRestante={guardarRestante}
                         />
                         : (
                             <div className="row">
