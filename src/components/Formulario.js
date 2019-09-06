@@ -4,7 +4,7 @@ import shortid from 'shortid'
 
 function Formulario(props) {
 
-    const { guardarGasto } = props
+    const { guardarGasto, guardarCrearGasto } = props
 
     const [nombreGasto, guardarNombreGasto] = useState('')
     const [cantidadGasto, guardarCantidadGasto] = useState(0)
@@ -24,6 +24,7 @@ function Formulario(props) {
             id: shortid.generate()
         }
         guardarGasto(gasto)
+        guardarCrearGasto(true)
         guardarError(false)
 
         // Resetear form
