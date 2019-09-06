@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 
-function ControlPresupuesto() {
+function ControlPresupuesto({presupuesto, restante}) {
     return (
-        <div>
-            Control presupuesto
-        </div>
+        <Fragment>
+            <div className="alert alert-primary">Presupuesto $ {presupuesto}</div>
+            <div className="">Restante $ {restante}</div>
+        </Fragment>
     )
 }
 
