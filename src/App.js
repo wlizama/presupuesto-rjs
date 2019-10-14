@@ -18,6 +18,8 @@ function App() {
         if(crearGasto) {
             const listaGastos = [...gastos, gasto]
             guardarGastos(listaGastos)
+            const presupuestoRestante = restante - gasto.cantidadGasto
+            guardarRestante(presupuestoRestante)
             guardarCrearGasto(false)
         }
     }, [crearGasto])
